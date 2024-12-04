@@ -30,4 +30,11 @@ public class CubeMover : MonoBehaviour
         // Raycast poni¿ej Cube, by sprawdziæ, czy dotyka ziemi
         return Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            rb.AddForce(Vector3.up * 1000 + Vector3.forward * 20);
+        }        
+    }
 }
